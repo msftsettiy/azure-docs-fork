@@ -1,0 +1,79 @@
+### YamlMime:Landing
+
+title: Microsoft Azure Managed Confidential Consortium Framework
+summary: Learn how to use Azure Managed Confidential Consortium Framework 
+metadata:
+  title: Azure Managed Confidential Consortium Framework documentation
+  description: Learn how to use Azure Managed Confidential Consortium Framework
+  services: managed-confidential-consortium-framework
+  ms.service: managed-confidential-consortium-framework
+  ms.topic: landing-page
+  author: msmbaldwin,msftsettiy
+  ms.author: mbaldwin,settiy
+  ms.date: 09/07/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Managed Confidential Consortium Framework
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Managed Confidential Consortium Framework?
+            url: overview.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Azure portal quickstart
+            url: quickstart-portal.md
+          - text: CLI quickstart
+            url: quickstart-cli.md
+          - text: Python quickstart
+            url: quickstart-python.md
+          - text: ARM template quickstart
+            url: quickstart-template.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Architecture
+            url: architecture.md
+          - text: Authenticating ledger nodes
+            url: authenticate-ledger-nodes.md
+          - text: Write transaction receipts
+            url: write-transaction-receipts.md
+
+  # Card
+  - title: How-to-guides
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Develop, debug and test an application locally
+            url: develop-debug-test.md
+          - text: Add members
+            url: add-members.md
+          - text: Set application runtime options
+            url: set-app-runtime-options.md
+          - text: Update a deployed application
+            url: update-application.md
+          - text: Customer enabled disaster recovery
+            url: customer-enabled-disaster-recovery.md
+          - text: View application logs in Log Analytics
+            url: log-analytics.md
+  # Card
+  - title: References
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Frequently asked questions
+            url: faq.yml
+
+
