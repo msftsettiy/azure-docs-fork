@@ -3,7 +3,7 @@ title: Microsoft Azure Managed Confidential Consortium Framework
 description: An overview of Azure Managed Confidential Consortium Framework, a highly secure service for deploying confidential application.
 services: managed-confidential-consortium-framework
 author: msmbaldwin,msftsettiy
-ms.service: managed-confidential-consortium-framework
+ms.service: managed-ccf
 ms.topic: overview
 ms.date: 09/07/2023
 ms.author: mbaldwin,settiy
@@ -65,7 +65,5 @@ Customers can build applications that target the Confidential Consortium Framewo
 
 ## Next steps
 
-- [Microsoft Azure confidential ledger architecture](architecture.md)
 - [Quickstart: Azure portal](quickstart-portal.md)
-- [Quickstart: Python](quickstart-python.md)
-- [Quickstart: Azure Resource Manager (ARM) template](quickstart-template.md)
+- [Quickstart: Azure CLI](quickstart-python.md)
