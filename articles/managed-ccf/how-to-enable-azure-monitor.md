@@ -5,13 +5,13 @@ author: msmbaldwin, msftsettiy
 ms.author: mbaldwin, settiy
 ms.date: 09/09/2023
 ms.service: managed-ccf
-ms.topic: quickstart
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: View the application logs in Azure Monitor
 
-In this quickstart turotial, you will learn how to view the application logs in Azure Monitor by creating a Log Analytics workspace. This tutorial builds on the Managed CCF resource created in the [Quickstart: Create an Azure Managed CCF resource](quickstart-portal.md) tutorial. Logs are essential pieces of information to understand, analyze and optimize the workings and performance of an application. 
+In this turotial, you will learn how to view the application logs in Azure Monitor by creating a Log Analytics workspace. This tutorial builds on the Managed CCF resource created in the [Quickstart: Create an Azure Managed CCF resource](quickstart-portal.md) tutorial. Logs are essential pieces of information to understand, analyze and optimize the workings and performance of an application. 
 
 The logs from your JavaScript application and from the Managed CCF resource can be viewed in Azure Monitor by creating a Log Analytics workspace.
 
@@ -21,11 +21,11 @@ The logs from your JavaScript application and from the Managed CCF resource can 
 
 2. After the workspace is created, make a note of the Resource Id from the properties page. 
 
-:::image type="content" source="media/quickstart-tutorials/log-analytics-workspace-properties.png" alt-text="Screenshot that shows the properties of a Log Analytics workspace screen.":::
+:::image type="content" source="media/how-to/log-analytics-workspace-properties.png" alt-text="Screenshot that shows the properties of a Log Analytics workspace screen.":::
 
 3. Navigate to the Managed CCF resource and make a note of the Resource Id from the properties page.
 
-:::image type="content" source="media/quickstart-tutorials/mccf-resource-properties-screen.png" alt-text="Screenshot that shows the properties of a Managed CCF resource screen.":::
+:::image type="content" source="media/how-to/mccf-resource-properties-screen.png" alt-text="Screenshot that shows the properties of a Managed CCF resource screen.":::
 
 ## Link the Log Analytics workspace to the Managed CCF resource
 
@@ -38,7 +38,7 @@ The logs from your JavaScript application and from the Managed CCF resource can 
 
 2.  Open the Logs page and group by the queries by Resource type from the drop down. Navigate to the 'Managed CCF' resource.
 
-:::image type="content" source="media/quickstart-tutorials/log-analytics-managed-ccf-query.png" alt-text="Screenshot that shows the Managed CCF resource query in the Log Analytics screen.":::
+:::image type="content" source="media/how-to/log-analytics-managed-ccf-query.png" alt-text="Screenshot that shows the Managed CCF resource query in the Log Analytics screen.":::
 
 3. 
 

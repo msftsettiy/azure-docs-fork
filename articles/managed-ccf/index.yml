@@ -36,8 +36,12 @@ landingContent:
             url: quickstart-cli.md
           - text: Python quickstart
             url: quickstart-python.md
-          - text: ARM template quickstart
-            url: quickstart-template.md
+          - text: .NET quickstart
+            url: quickstart-dotnet.md
+          - text: Go quickstart
+            url: quickstart-go.md
+          - text: Java quickstart
+            url: quickstart-java.md
 
   # Card
   - title: How-to-guides
