@@ -31,11 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a member
 
-Generate a key pair for each member that will participate in the governance. A minimum of one member is required. The following command generates a key pair for member0.
-
-```bash
-$ . /opt/ccf_virtual/bin/keygenerator.sh --name member0
-``````
+[!INCLUDE [Create a member](includes/create-member.md)]
 
 ## Create a Managed CCF resource
 
@@ -43,9 +39,9 @@ $ . /opt/ccf_virtual/bin/keygenerator.sh --name member0
 
 2. In the Search box, enter "Confidential Ledger", select said application, and then choose **Create**.
 
-```Note
-The portal URL should contain the query string ‘feature.Microsoft_Azure_ConfidentialLedger_managedccf=true’ to turn on the Managed CCF resource. 
-```
+> [!Note]
+> The portal URL should contain the query string ‘feature.Microsoft_Azure_ConfidentialLedger_managedccf=true’ to turn on the Managed CCF feature.
+
 1. On the Create confidential ledger section, provide the following information:
     - **Subscription**: Choose the desired subscription.
     - **Resource Group**: Choose the desired resource group.
@@ -55,7 +51,7 @@ The portal URL should contain the query string ‘feature.Microsoft_Azure_Confid
     - **Application Type**: Choose Custom JavaScript Application.
     - **Network Node Count**: Choose the desired node count.
 
-:::image type="content" source="./media/create-mccf-resource.png" alt-text="Managed CCF create screen":::
+:::image type="content" source="media/quickstart-tutorials/create-mccf-resource.png" alt-text="A screenshot of the Managed CCF create screen":::
        
 2. Select the **Security** tab.
 
@@ -64,15 +60,15 @@ The portal URL should contain the query string ‘feature.Microsoft_Azure_Confid
     - **Member Group**: An optional group name.
     - **Certificate**: Paste the contents of the member0_cert.pem file.
 
-:::image type="content" source="./media/create-mccf-resource-security-tab.png" alt-text="Managed CCF create security tab screen":::
+:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-security-tab.png" alt-text="A screenshot of the Managed CCF resource security tab screen":::
 
 5. Select **Review + Create**. After validation has passed, select **Create**.1. 
 
-:::image type="content" source="./media/create-mccf-resource-review-tab.png" alt-text="Managed CCF create review tab screen":::
+:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-review-tab.png" alt-text="A screenshot of the Managed CCF resource review tab screen":::
 
 When the deployment is complete. select **Go to resource**.
 
-:::image type="content" source="./media/create-mccf-resource-properties-screen.png" alt-text="Managed CCF Resource properties screen":::
+:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-overview-screen.png" alt-text="A screenshot of the Managed CCF resource properties screen":::
 
 Make a note of the following properties as it is required to activate the member(s). 
 
@@ -101,4 +97,4 @@ In this quickstart, you created a Managed CCF resource by using the Azure portal
 
 - [Microsoft Azure Managed CCF overview](overview.md)
 - [Quickstart: Activate members](activate-members.md)
-- [Quickstart: Azure CLI](quickstart-portal.md)
+- [Quickstart: Azure CLI](quickstart-cli.md)

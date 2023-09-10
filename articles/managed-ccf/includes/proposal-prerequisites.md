@@ -1,0 +1,2 @@
+- Python 3+.
+- Install the latest version of the [CCF Python package](https://pypi.org/project/ccf/).

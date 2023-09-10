@@ -20,11 +20,8 @@ In this quickstart tutorial, you will learn how to activate the member(s) in a M
 
 ## Download the service identity
 
-The identity of a Managed CCF resource is represented by a certificate. It is used to establish a TLS connection with the resource nodes and validate the server identity. Download the certificate and save it to service_cert.pem.
+[!INCLUDE [Download Service Identity](./includes/service-identity.md)]
 
-```Bash
-$ curl https://identity.confidential-ledger.core.azure.com/ledgerIdentity/confidentialbillingapp --silent | jq ' .ledgerTlsCertificate' | xargs echo -e > service_cert.pem
-```
 ## Activate Member(s)
 
 A new member who gets registered in Managed CCF is not yet able to participate in the governance operations. To do so, the new member should first acknowledge that they are satisfied with the state of the service (for example, after auditing the current constitution and the nodes currently trusted).
@@ -45,31 +42,9 @@ $ ccf_cose_sign1 --ccf-gov-msg-type ack --ccf-gov-msg-created_at `date -Is` --si
   curl https://confidentialbillingapp.confidential-ledger.azure.com/gov/ack --cacert service_cert.pem --data-binary @- -H "content-type: application/cose"
 ```
 
-3. After the command completes, the new member becomes active and can take part in the governance operations. You can check the state of the members using the following command.
+3. After the command completes, the new member becomes active and can take part in the governance operations. You can view the members in the resource using the following command.
 
-```Bash
-$ curl --cacert service_cert.pem https://confidentialbillingapp.confidential-ledger.azure.com/gov/members | jq
-{
-  "710c4d7ce6a70a89137b39170cd5c48f94b4756a66e66b2242370111c1c47564": {
-    "cert": "-----BEGIN CERTIFICATE-----\nMIIB9zCCAX2gAwIBAgIQW20I1iR...l8Uv8rRce\n-----END CERTIFICATE-----",
-    "member_data": {
-      "is_operator": true,
-      "owner": "Microsoft Azure"
-    },
-    "public_encryption_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMI...n3QIDAQAB\n-----END PUBLIC KEY-----\n",
-    "status": "Active"
-  },
-  "f9ea379051e5292b538ff2a3dc97f1bb4d5046f12e2bdbf5b8e3acc4516f34e3": {
-    "cert": "-----BEGIN CERTIFICATE-----\nMIIBuzCCAUKgAwIBAgIURuSESLma...yyK1EHhxx\n-----END CERTIFICATE-----",
-    "member_data": {
-      "group": "",
-      "identifier": "member0"
-    },
-    "public_encryption_key": null,
-    "status": "Active"
-  }
-}
-```
+[!INCLUDE [View members](./includes/view-members.md)]
 
 ## Next steps
 

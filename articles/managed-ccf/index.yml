@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
 title: Microsoft Azure Managed Confidential Consortium Framework
-summary: Learn how to use Azure Managed Confidential Consortium Framework 
+summary: Learn how to use Microsoft Azure Managed Confidential Consortium Framework 
 metadata:
-  title: Azure Managed Confidential Consortium Framework documentation
-  description: Learn how to use Azure Managed Confidential Consortium Framework
-  services: managed-confidential-consortium-framework
-  ms.service: managed-confidential-consortium-framework
+  title: Microsoft Azure Managed Confidential Consortium Framework documentation
+  description: Learn how to use Microsoft Azure Managed Confidential Consortium Framework
+  services: azure-managed-confidential-consortium-framework
+  ms.service: azure-managed-confidential-consortium-framework
   ms.topic: landing-page
   author: msmbaldwin,msftsettiy
   ms.author: mbaldwin,settiy
@@ -22,7 +22,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Managed Confidential Consortium Framework?
+          - text: What is Microsoft Azure Managed Confidential Consortium Framework?
             url: overview.md
 
   # Card
@@ -38,18 +38,6 @@ landingContent:
             url: quickstart-python.md
           - text: ARM template quickstart
             url: quickstart-template.md
-
-  # Card
-  - title: Concepts
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Architecture
-            url: architecture.md
-          - text: Authenticating ledger nodes
-            url: authenticate-ledger-nodes.md
-          - text: Write transaction receipts
-            url: write-transaction-receipts.md
 
   # Card
   - title: How-to-guides
