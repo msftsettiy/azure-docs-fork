@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft Azure Managed Confidential Consortium Framework
-summary: Learn how to use Microsoft Azure Managed Confidential Consortium Framework 
+summary: Learn how to use Microsoft Azure Managed Confidential Consortium Framework
 metadata:
   title: Microsoft Azure Managed Confidential Consortium Framework documentation
   description: Learn how to use Microsoft Azure Managed Confidential Consortium Framework
@@ -48,24 +48,17 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Develop, debug and test an application locally
-            url: develop-debug-test.md
-          - text: Add members
-            url: add-members.md
+          - text: Build, deploy and test a JavaScript application locally
+            url: how-to-build-deploy-test-local.md
+          - text: managed members
+            url: how-to-manage-members.md
           - text: Set application runtime options
-            url: set-app-runtime-options.md
-          - text: Update a deployed application
-            url: update-application.md
+            url: how-to-update-js-runtime-options.md
+          - text: Update an application
+            url: how-to-update-application.md
           - text: Customer enabled disaster recovery
             url: customer-enabled-disaster-recovery.md
-          - text: View application logs in Log Analytics
-            url: log-analytics.md
-  # Card
-  - title: References
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Frequently asked questions
-            url: faq.yml
+          - text: View application logs in Azure Monitor
+            url: how-to-enable-azure-monitor.md
 
 

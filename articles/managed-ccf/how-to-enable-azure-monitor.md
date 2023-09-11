@@ -1,5 +1,5 @@
 ---
-title: Quickstart – View application logs in Azure Monitor
+title: View application logs in Azure Monitor
 description: Learn to view the application logs in Azure Monitor
 author: msmbaldwin, msftsettiy
 ms.author: mbaldwin, settiy
@@ -36,14 +36,11 @@ The logs from your JavaScript application and from the Managed CCF resource can 
 > az monitor diagnostic-settings create --name confidentialbillingapplogs --resource <Resource Id of the Managed CCF resource> --workspace <Resource Id of the workspace> --logs [{\"category\":\"applicationlogs\",\"enabled\":true,\"retentionPolicy\":{\"enabled\":false,\"days\":0}}]
 ```
 
-2.  Open the Logs page and group by the queries by Resource type from the drop down. Navigate to the 'Managed CCF' resource.
+2.  Open the Logs page. Navaigate to the Queries tab and group the queries by Resource type from the drop down. Navigate to the 'Azure Managed CCF' resource and run the 'CCF application errors' query. Remove the 'Level' filter to view all the logs. 
 
-:::image type="content" source="media/how-to/log-analytics-managed-ccf-query.png" alt-text="Screenshot that shows the Managed CCF resource query in the Log Analytics screen.":::
-
-3. 
+:::image type="content" source="media/how-to/log-analytics-logs.png" alt-text="Screenshot that shows the Managed CCF resource query in the Log Analytics screen.":::
 
 ## Next steps
 
 - [Microsoft Azure Managed CCF overview](overview.md)
-- [Quickstart: View application logs in Log Analytics](quickstart-enable-log-analytics.md)
 - [Quickstart: Deploy an Azure Managed CCF application](quickstart-deploy-application.md)
