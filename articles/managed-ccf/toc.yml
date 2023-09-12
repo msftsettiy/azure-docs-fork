@@ -35,6 +35,8 @@
     href: how-to-backup-restore-resource.md
   - name: View application logs in Azure Monitor
     href: how-to-enable-azure-monitor.md
+  - name: View the members
+    href: how-to-view-members.md
 
 - name: Resources
   items:

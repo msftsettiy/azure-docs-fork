@@ -62,5 +62,7 @@ landingContent:
             url: how-to-backup-restore-resource.md
           - text: View application logs in Azure Monitor
             url: how-to-enable-azure-monitor.md
+          - text: View the members
+            url: how-to-view-members.md
 
 

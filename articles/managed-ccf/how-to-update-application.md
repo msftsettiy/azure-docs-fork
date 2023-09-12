@@ -22,7 +22,7 @@ With Managed CCF, it is simple and quick to update an appliation when new functi
 
 ## Update the application
 
-[!INCLUDE [Mac instructions](./includes/macos-instructions.md)]
+[!INCLUDE [Mac instructions](./includes/macos-instructions.md)
 
 > [!Note]
 > This tutorial assumes that the updated application bundle is created using the instructions available [here](https://microsoft.github.io/CCF/main/build_apps/js_app_bundle.html) and saved to set_js_app.json.

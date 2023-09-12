@@ -33,19 +33,19 @@ Example: Compile and share CCF source code for users to audit both the system’
 
 The key features of Azure Managed CCF are confidentiality, customizable governance, high availability, auditability and transparency.
 
-:::image type="content" source="./media/azure-mccf-key-features.png" alt-text="Key features":::
+:::image type="content" source="media/azure-mccf-key-features.png" alt-text="Key features":::
 
 ### Confidentiality
 
 The nodes in an Azure Managed CCF run inside a hardware-based Trusted Execution Environment (TEE) which ensures that the data in use is protected and encrypted, while in RAM, and during computation. The following diagram shows how the code and data is protected while in use.
 
-:::image type="content" source="./media/tee-enclave-example.png" alt-text="TEE enclave example":::
+:::image type="content" source="media/tee-enclave-example.png" alt-text="TEE enclave example":::
 
 ### Customizable Governance
 
 The participants, called members, share the responsibility for the network operationability which is established by a constitution. The shared governance model establishes trust and transparency among the members through a voting process which is public and auditable. The constitution is implemented as a set of JavaScript scripts which can be customized during the network creation and later. The following diagram shows how the members participate in a governance operation to either accept or reject a proposed action which is enforced by the constitution.
 
-:::image type="content" source="./media/governance.png" alt-text="Proposal governance":::
+:::image type="content" source="media/governance.png" alt-text="Proposal governance":::
 
 ### High Availability
 
@@ -61,7 +61,7 @@ The governance operations and the associated public key value maps are stored in
 
 Customers can build applications that target the Confidential Consortium Framework(CCF) and self host it. But it introduces common engineering problems like regular code maintenance and frequent hardware and software updates that are time and resource critical. Azure Managed CCF abstracts away the day-to-day operational tasks and allows the engineering team to stay focused on the business priorities. The following diagram shows the benefits of using Azure Managed CCF over self-hosting.
 
-:::image type="content" source="./media/paas-vs-iaas.png" alt-text="Azure Managed CCF vs open-source CCF":::
+:::image type="content" source="media/paas-vs-iaas.png" alt-text="Azure Managed CCF vs open-source CCF":::
 
 ## Next steps
 
