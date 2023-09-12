@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2023
+ms.date: 09/08/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -372,6 +372,8 @@ This article provides example SCIM requests emitted by the Azure Active Director
 *GET /Users/5171a35d82074e068ce2* 
 
 ###### Response (User not found. The detail isn't required, only status.)
+
+*HTTP/1.1 404 Not Found*
 
 ```json
 {
@@ -888,7 +890,7 @@ organization.",
 
 **TLS Protocol Versions**
 
-The only acceptable protocol versions are TLS 1.2 and TLS 1.3. No other SSL/TLS versions are permitted.
+The only acceptable protocol version is TLS 1.2. No other SSL/TLS version is permitted.
 
 - RSA keys must be at least 2,048 bits.
 - ECC keys must be at least 256 bits, generated using an approved elliptic curve
