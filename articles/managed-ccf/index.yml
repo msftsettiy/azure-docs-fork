@@ -52,14 +52,14 @@ landingContent:
         links:
           - text: Build, deploy and test a JavaScript application locally
             url: how-to-build-deploy-test-local.md
-          - text: managed members
+          - text: Manage members
             url: how-to-manage-members.md
           - text: Set application runtime options
             url: how-to-update-js-runtime-options.md
           - text: Update an application
             url: how-to-update-application.md
-          - text: Customer enabled disaster recovery
-            url: customer-enabled-disaster-recovery.md
+          - text: Backup and restore a Managed CCF resource
+            url: how-to-backup-restore-resource.md
           - text: View application logs in Azure Monitor
             url: how-to-enable-azure-monitor.md
 

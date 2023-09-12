@@ -128,23 +128,10 @@ internal class ACLUserManagement
 ### Install the packages
 
 ```Java
-<!-- https://mvnrepository.com/artifact/com.azure/azure-security-confidentialledger -->
 <dependency>
-	<groupId>com.azure</groupId>
-	<artifactId>azure-security-confidentialledger</artifactId>
-	<version>1.0.6</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.azure/azure-identity -->
-<dependency>
-	<groupId>com.azure</groupId>
-	<artifactId>azure-identity</artifactId>
-	<version>1.8.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.azure/azure-core -->
-<dependency>
-	<groupId>com.azure</groupId>
-	<artifactId>azure-core</artifactId>
-	<version>1.36.0</version>
+    <groupId>com.azure.resourcemanager</groupId>
+    <artifactId>azure-resourcemanager-confidentialledger</artifactId>
+    <version>1.0.0-beta.3</version>
 </dependency>
 ```
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---
 
-# Quickstart: View the application logs in Azure Monitor
+# View the application logs in Azure Monitor
 
 In this turotial, you will learn how to view the application logs in Azure Monitor by creating a Log Analytics workspace. This tutorial builds on the Managed CCF resource created in the [Quickstart: Create an Azure Managed CCF resource](quickstart-portal.md) tutorial. Logs are essential pieces of information to understand, analyze and optimize the workings and performance of an application. 
 

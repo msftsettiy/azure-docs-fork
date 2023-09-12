@@ -1,6 +1,6 @@
 ---
-title: Quickstart – Azure SDKs for JavaScript and TypeScript for Microsoft Azure Managed Confidential Consortium Framework 
-description: Learn to use the Azure JavaScript client library for Microsoft Azure Managed Confidential Consortium Framework
+title: Quickstart – Azure SDK for JavaScript and TypeScript for Microsoft Azure Managed Confidential Consortium Framework 
+description: Learn to use the Azure SDK for JavaScript and TypeScript library for Microsoft Azure Managed Confidential Consortium Framework
 author: msmbaldwin, msftsettiy
 ms.author: mbaldwin, settiy
 ms.date: 09/11/2023
@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.custom: devx-track-python, mode-api
 ---
 
-# Quickstart: Create a Microsoft Azure Managed Confidential Consortium Framework using the Nodejs SDK
+# Quickstart: Create a Microsoft Azure Managed Confidential Consortium Framework resource using the Azure SDK for JavaScript and TypeScript
 
 Microsoft Azure Managed Confidential Consortium Framework (Managed CCF) is a new and highly secure service for deploying confidential applications. For more information on Azure Manaegd CCF, and for examples use cases, see [About Microsoft Azure Managed Confidential Consortium Framework](overview.md).
 
@@ -153,4 +153,5 @@ In this quickstart, you created a Managed CCF resource by using the Azure Python
 
 - [Microsoft Azure Managed CCF overview](overview.md)
 - [Quickstart: Activate members](activate-members.md)
+- [Quickstart: Azure Portal](quickstart-portal.md)
 - [Quickstart: Azure CLI](quickstart-cli.md)

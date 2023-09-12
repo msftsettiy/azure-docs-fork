@@ -1,8 +1,8 @@
-- name: Azure confidential ledger 
+- name: Azure Managed Confidential Consortium Framework
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure confidential ledger
+  - name: About Azure Managed Confidential Consortium Framework
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -11,53 +11,31 @@
     href: quickstart-portal.md
   - name: CLI
     href: quickstart-cli.md
-  - name: PowerShell
-    href: quickstart-powershell.md
   - name: Python
     href: quickstart-python.md
+  - name: Java
+    href: quickstart-java.md
   - name: .NET
     href: quickstart-net.md
-  - name: ARM template
-    href: quickstart-template.md 
-- name: Concepts
-  items:
-  - name: Architecture
-    href: architecture.md
-  - name: Authentication with Azure AD
-    href: authentication-azure-ad.md
-  - name: Authenticating ledger nodes
-    href: authenticate-ledger-nodes.md
-  - name: Write transaction receipts
-    href: write-transaction-receipts.md
+  - name: Go
+    href: quickstart-go.md 
+  - name: TypeScript
+    href: quickstart-typescript.md 
 - name: How To Guides
   items:
-  - name: Create a client certificate
-    href: create-client-certificate.md 
-  - name: Register the confidential ledger resource provider
-    href: register-ledger-resource-provider.md
-  - name: Register an ACL app with Azure AD
-    href: register-application.md
-  - name: Verify write transaction receipts
-    href: verify-write-transaction-receipts.md
-  - name: Establish trust on Azure confidential ledger
-    href: verify-node-quotes.md
-  - name: Manage Azure AD token-based users
-    href: manage-azure-ad-token-based-users.md
-  - name: Manage certificate-based users
-    href: manage-certificate-based-users.md
-- name: References
-  items:
+  - name: Build, deploy and test a JavaScript application locally
+    href: how-to-build-deploy-test-local.md
+  - name: Manage members
+    href: how-to-manage-members.md
+  - name: Set application runtime options
+    href: how-to-update-js-runtime-options.md
+  - name: Update an application
+    href: how-to-update-application.md
+  - name: Backup and restore a Managed CCF resource
+    href: how-to-backup-restore-resource.md
+  - name: View application logs in Azure Monitor
+    href: how-to-enable-azure-monitor.md
 
-  - name: FAQ
-    href: faq.yml
-  - name: Azure confidential ledger REST API reference
-    href: /rest/api/confidentialledger/
-  - name: .NET client library
-    href: /dotnet/api/overview/azure/confidentialledger 
-  - name: JavaScript client library
-    href: /javascript/api/overview/azure/azure-confidential-ledger
-  - name: Java preview client library
-    href: /java/api/overview/azure/data-confidentialledger-readme
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training

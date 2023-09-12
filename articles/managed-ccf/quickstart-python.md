@@ -91,7 +91,7 @@ app_properties = {
       ],
       "nodeCount": 3 # Maximum allowed value is 9
     },
-    "tags": { "cost center": "CC01123P" }
+    "tags": { "costcenter": "12345" }
 }
 
 result = client.managed_ccf.begin_create("contoso-rg", "confidentialbillingapp", app_properties).result()
@@ -119,4 +119,5 @@ In this quickstart, you created a Managed CCF resource by using the Azure Python
 
 - [Microsoft Azure Managed CCF overview](overview.md)
 - [Quickstart: Activate members](activate-members.md)
+- [Quickstart: Azure Portal](quickstart-portal.md)
 - [Quickstart: Azure CLI](quickstart-cli.md)
