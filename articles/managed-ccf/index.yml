@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Microsoft Azure Managed Confidential Consortium Framework
-summary: Learn how to use Microsoft Azure Managed Confidential Consortium Framework
+title: Azure Managed Confidential Consortium Framework
+summary: Learn how to use Azure Managed Confidential Consortium Framework
 metadata:
-  title: Microsoft Azure Managed Confidential Consortium Framework documentation
-  description: Learn how to use Microsoft Azure Managed Confidential Consortium Framework
+  title: Azure Managed Confidential Consortium Framework documentation
+  description: Learn how to use Azure Managed Confidential Consortium Framework
   services: azure-managed-confidential-consortium-framework
   ms.service: azure-managed-confidential-consortium-framework
   ms.topic: landing-page
@@ -22,7 +22,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Azure Managed Confidential Consortium Framework?
+          - text: What is Azure Managed Confidential Consortium Framework?
             url: overview.md
 
   # Card
@@ -34,6 +34,10 @@ landingContent:
             url: quickstart-portal.md
           - text: CLI quickstart
             url: quickstart-cli.md
+          - text: Activate members
+            url: quickstart-activate-members.md  
+          - text: Deploy a JavaScript application
+            url: quickstart-deploy-application.md
           - text: Python quickstart
             url: quickstart-python.md
           - text: .NET quickstart
@@ -62,7 +66,7 @@ landingContent:
             url: how-to-backup-restore-resource.md
           - text: View application logs in Azure Monitor
             url: how-to-enable-azure-monitor.md
-          - text: View the members
+          - text: View the members in a Managed CCF resource
             url: how-to-view-members.md
 
 

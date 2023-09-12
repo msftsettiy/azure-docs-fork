@@ -1,6 +1,6 @@
 ---
-title: How to Perform a Disaster Recovery
-description: Learn how to backup and restore a Azure Managed CCF resource.
+title: Backup and restore an Azure Managed CCF resoure
+description: Learn to backup and restore an Azure Managed CCF resource
 services: managed-ccf
 author: msmbaldwin,pallabpaul
 ms.service: managed-ccf
