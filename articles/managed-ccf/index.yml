@@ -37,9 +37,11 @@ landingContent:
           - text: Python quickstart
             url: quickstart-python.md
           - text: .NET quickstart
-            url: quickstart-dotnet.md
+            url: quickstart-net.md
           - text: Go quickstart
             url: quickstart-go.md
+          - text: TypeScript quickstart  
+            url: quickstart-typescript.md
           - text: Java quickstart
             url: quickstart-java.md
 

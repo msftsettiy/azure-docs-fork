@@ -25,15 +25,21 @@ In this quickstart, you create a Managed CCF resource with the [Azure portal](ht
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a resource group
+### Register the provider
+
+Register the resource provider in your subscription using the following commands.
+
+[!INCLUDE [Register provider](includes/register-provider.md)]
+
+### Create a resource group
 
 [!INCLUDE [Create resource group](../../includes/powershell-rg-create.md)]
 
-## Create a member
+### Create members
 
-[!INCLUDE [Create a member](includes/create-member.md)]
+[!INCLUDE [Create members](includes/create-member.md)]
 
-## Create a Managed CCF resource
+### Create a Managed CCF resource
 
 1. From the Azure portal menu, or from the Home page, select **Create a resource**.
 
@@ -77,7 +83,7 @@ Make a note of the following properties as it is required to activate the member
 
 You will need these values to transact with the confidential ledger from the data plane.
  
-## Clean up resources
+### Clean up resources
 
 Other Azure Managed CCF articles build upon this quickstart. If you plan to continue on to work with subsequent articles, you may wish to leave these resources in place. 
 
@@ -91,9 +97,7 @@ When no longer needed, delete the resource group, which deletes the Managed CCF 
 
 ## Next steps
 
-In this quickstart, you created a Managed CCF resource by using the Azure portal. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to the articles below.
-
-## Next steps
+In this quickstart, you created a Managed CCF resource by using the Azure portal. To learn more about Azure Managed CCF and how to integrate it with your applications, continue on to the articles below.
 
 - [Microsoft Azure Managed CCF overview](overview.md)
 - [Quickstart: Activate members](activate-members.md)
