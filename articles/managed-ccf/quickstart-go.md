@@ -9,57 +9,45 @@ ms.topic: quickstart
 ms.custom: devx-track-python, mode-api
 ---
 
-# Quickstart: Create a Microsoft Azure Managed Confidential Consortium Framework using the .NET SDK
+# Quickstart: Create a Microsoft Azure Managed Confidential Consortium Framework resorce using the Azure SDK for Go library
 
 Microsoft Azure Managed Confidential Consortium Framework (Managed CCF) is a new and highly secure service for deploying confidential applications. For more information on Azure Manaegd CCF, and for examples use cases, see [About Microsoft Azure Managed Confidential Consortium Framework](overview.md).
 
-In this quickstart, you learn how to create a Managed CCF resource using the .NET client management library.
+In this quickstart, you learn how to create a Managed CCF resource using the Azure SDK for Go library.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[API reference documentation](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/resourcemanager.confidentialledger-readme?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger/Azure.ResourceManager.ConfidentialLedger) | [Package (NuGet)](https://www.nuget.org/packages/Azure.ResourceManager.ConfidentialLedger/1.1.0-beta.2)
+[API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/confidentialledger/armconfidentialledger@v1.2.0-beta.1#section-documentation) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/confidentialledger/armconfidentialledger) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/confidentialledger/armconfidentialledger@v1.2.0-beta.1)
 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- .NET versions [supported by the Azure SDK for .NET](https://www.nuget.org/packages/Azure.ResourceManager.ConfidentialLedger/1.1.0-beta.2#dependencies-body-tab).
+- Go 1.18 or above.
 
 ## Setup
 
-### Create new .NET console app
+### Create a new Go application
 
-1. In a command shell, run the following command to create a project named `managedccf-app`:
+1. In a command shell, run the following command to create a folder named `managedccf-app`:
 
-    ```dotnetcli
-    dotnet new console --name managedccf-app
-    ```
-
-1. Change to the newly created *managedccf-app* directory, and run the following command to build the project:
-
-    ```dotnetcli
-    dotnet build
-    ```
-
-    The build output should contain no warnings or errors.
-    
-    ```console
-    Build succeeded.
-     0 Warning(s)
-     0 Error(s)
-    ```
-
-### Install the package
-
-Install the Azure Managed CCF client library for .NET with [NuGet][client_nuget_package]:
-
-```dotnetcli
-dotnet add package Azure.ResourceManager.ConfidentialLedger --version 1.1.0-beta.2
+```terminal
+$mkdir managedccf-app
+$cd managedccf-app
+$go mod init github.com/azure/resourcemanager/confidentialledger
 ```
 
-For this quickstart, you'll also need to install the Azure SDK client library for Azure Identity:
+2. ### Install the modules
 
-```dotnetcli
-dotnet add package Azure.Identity
+Install the Azure Confidential Ledger module.
+
+```go
+go get -u github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/confidentialledger/armconfidentialledger@v1.2.0-beta.1
+```
+
+For this quickstart, you'll also need to install the [Azure Identity module for Go](https://learn.microsoft.com/en-us/azure/developer/go/azure-sdk-authentication?tabs=bash).
+
+```go
+go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
 ### Create a resource group
@@ -74,171 +62,143 @@ dotnet add package Azure.Identity
 
 [!INCLUDE [Create members](includes/create-member.md)]
 
-## Create the JavaScript application
+## Create the Go application
 
-### Use the Management plane client library
+### Create a Managed CCF resource
 
-The management plane library (azure/arm-confidentialledger) allows operations on Managed CCF resources, such as creation and deletion, listing the resources associated with a subscription, and viewing the details of a specific resource. The following piece of code creates and views the properties of a Managed CCF resource.
+The management plane library allows operations on Managed CCF resources, such as creation and deletion, listing the resources associated with a subscription, and viewing the details of a specific resource. The following piece of code creates and views the properties of a Managed CCF resource.
 
-Add the following directives to the top of *Program.cs*:
+Add the following directives to the top of *main.go*:
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Azure;
-using Azure.Core;
-using Azure.Identity;
-using Azure.ResourceManager;
-using Azure.ResourceManager.ConfidentialLedger;
-using Azure.ResourceManager.ConfidentialLedger.Models;
-using Azure.ResourceManager.Resources;
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/confidentialledger/armconfidentialledger"
+)
 ```
 
-### Authenticate and create a client
+### Authenticate and create a client factory
 
-In this quickstart, logged in user is used to authenticate to Azure Managed CCF, which is the preferred method for local development. This example uses ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity.
+In this quickstart, logged in user is used to authenticate to Azure Managed CCF, which is the preferred method for local development. This example uses ['NewDefaultAzureCredential()'](https://learn.microsoft.com/en-us/azure/developer/go/azure-sdk-authentication?tabs=bash#authenticate-to-azure-with-defaultazurecredential) class from [Azure Identity module](https://learn.microsoft.com/en-us/azure/developer/go/azure-sdk-authentication?tabs=bash), which allows to use the same code across different environments with different options to provide identity.
 
-```csharp
-// get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication?tabs=command-line
-TokenCredential cred = new DefaultAzureCredential();
+```go
+cred, err := azidentity.NewDefaultAzureCredential(nil)
+if err != nil {
+    log.Fatalf("Failed to obtain a credential: %v", err)
+}
 ```
-Create an ARM client and authenticate using the token credential.
 
-```csharp
-// authenticate your client
-ArmClient client = new ArmClient(cred);
+Create an ARM client factory and authenticate using the token credential.
+
+```go
+ctx := context.Background()
+clientFactory, err := armconfidentialledger.NewClientFactory("0000000-0000-0000-0000-000000000001", cred, nil)
+
+if err != nil {
+    log.Fatalf("Failed to create client: %v", err)
+}
 ```
 
 ### Create a Managed CCF resource
 
-```csharp
-// this example assumes you already have this ResourceGroupResource created on azure
-// for more information of creating ResourceGroupResource, please refer to the document of ResourceGroupResource
-string subscriptionId = "0000000-0000-0000-0000-000000000001";
-string resourceGroupName = "contoso-rg";
-ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
-ResourceGroupResource resourceGroupResource = client.GetResourceGroupResource(resourceGroupResourceId);
+```go
+appName := "confidentialbillingapp"
+rgName := "contoso-rg"
 
-// get the collection of this ManagedCcfResource
-ManagedCcfCollection collection = resourceGroupResource.GetManagedCcfs();
-
-// invoke the operation
-string appName = "confidentialbillingapp";
-ManagedCcfData data = new ManagedCcfData(new AzureLocation("SouthCentralUS"))
-{
-    Properties = new ManagedCcfProperties()
-    {
-        MemberIdentityCertificates =
-        {
-            new ConfidentialLedgerMemberIdentityCertificate()
+// Create a new resource
+poller, err := clientFactory.NewManagedCCFClient().BeginCreate(ctx, rgName, appName, armconfidentialledger.ManagedCCF{
+    Location: to.Ptr("SouthCentralUS"),
+    Tags: map[string]*string{
+        "Department": to.Ptr("Contoso IT"),
+    },
+    Properties: &armconfidentialledger.ManagedCCFProperties{
+        DeploymentType: &armconfidentialledger.DeploymentType{
+            AppSourceURI:    to.Ptr(""),
+            LanguageRuntime: to.Ptr(armconfidentialledger.LanguageRuntimeJS),
+        },
+        MemberIdentityCertificates: []*armconfidentialledger.MemberIdentityCertificate{
             {
-                Certificate = "-----BEGIN CERTIFICATE-----MIIBsjCCATigA...LjYAGDSGi7NJnSkA-----END CERTIFICATE-----",
-                Encryptionkey = "",
-                Tags = BinaryData.FromObjectAsJson(new Dictionary<string, object>()
-                {
-                    ["additionalProps1"] = "additional properties"
-                }),
-            }
-        },
-        DeploymentType = new ConfidentialLedgerDeploymentType()
-        {
-            LanguageRuntime = ConfidentialLedgerLanguageRuntime.JS,
-            AppSourceUri = new Uri(""),
-        },
-        NodeCount = 3,
+                Certificate:   to.Ptr("-----BEGIN CERTIFICATE-----\nMIIU4G0d7....1ZtULNWo\n-----END CERTIFICATE-----"),
+                Encryptionkey: to.Ptr(""),
+                Tags: map[string]any{
+                    "owner": "IT Admin1",
+                },
+            }},
+        NodeCount: to.Ptr[int32](3),
     },
-    Tags =
-    {
-        ["additionalProps1"] = "additional properties",
-    },
-};
+}, nil)
 
-ArmOperation<ManagedCcfResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, appName, data);
-ManagedCcfResource result = lro.Value;
+if err != nil {
+    log.Fatalf("Failed to finish the request: %v", err)
+}
 
-// the variable result is a resource, you could call other operations on this instance as well
-// but just for demo, we get its data from this resource instance
-ManagedCcfData resourceData = result.Data;
-// for demo we just print out the id
-Console.WriteLine($"Succeeded on id: {resourceData.Id}");
+_, err = poller.PollUntilDone(ctx, nil)
+
+if err != nil {
+    log.Fatalf("Failed to pull the result: %v", err)
+}
 ```
-### View the properties of a Managed CCF resource
 
-The following piece of code retrives the Managed CCF resource that was created above and prints it's properties. 
+### Get the properties of the Managed CCF resource
 
-```csharp
-// this example assumes you already have this ResourceGroupResource created on azure
-// for more information of creating ResourceGroupResource, please refer to the document of ResourceGroupResource
-string subscriptionId = "0000000-0000-0000-0000-000000000001";
-string resourceGroupName = "contoso-rg";
-ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
-ResourceGroupResource resourceGroupResource = client.GetResourceGroupResource(resourceGroupResourceId);
+The following piece of code retrieves the Managed CCF resource created in the previous step.
 
-// get the collection of this ManagedCcfResource
-ManagedCcfCollection collection = resourceGroupResource.GetManagedCcfs();
+```go
+log.Println("Getting the Managed CCF resource.")
 
-// invoke the operation
-string appName = "confidentialbillingapp";
-ManagedCcfResource result = await collection.GetAsync(appName);
+// Get the resource details and print it
+getResponse, err := clientFactory.NewManagedCCFClient().Get(ctx, rgName, appName, nil)
 
-// the variable result is a resource, you could call other operations on this instance as well
-// but just for demo, we get its data from this resource instance
-ManagedCcfData resourceData = result.Data;
-// for demo we just print out the id
-Console.WriteLine($"Succeeded on id: {resourceData.Id}");
+if err != nil {
+    log.Fatalf("Failed to get details of mccf instance: %v", err)
+}
+
+// Print few properties of the Managed CCF resource
+log.Println("Application name:", *getResponse.ManagedCCF.Properties.AppName)
+log.Println("Node Count:", *getResponse.ManagedCCF.Properties.NodeCount)
 ```
 
 ### List the Managed CCF resources in a Resource Group
 
-The following piece of code retrieves the Managed CCF resources in a resource group.
+The following piece of code retrieves the Managed CCF resources in the resource group.
 
-```csharp
-// this example assumes you already have this ResourceGroupResource created on azure
-// for more information of creating ResourceGroupResource, please refer to the document of ResourceGroupResource
-string subscriptionId = "0000000-0000-0000-0000-000000000001";
-string resourceGroupName = "contoso-rg";
-ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
-ResourceGroupResource resourceGroupResource = client.GetResourceGroupResource(resourceGroupResourceId);
+```go
+pager := clientFactory.NewManagedCCFClient().NewListByResourceGroupPager(rgName, nil)
 
-// get the collection of this ManagedCcfResource
-ManagedCcfCollection collection = resourceGroupResource.GetManagedCcfs();
+for pager.More() {
+    page, err := pager.NextPage(ctx)
+    if err != nil {
+        log.Fatalf("Failed to advance page: %v", err)
+    }
 
-// invoke the operation and iterate over the result
-await foreach (ManagedCcfResource item in collection.GetAllAsync())
-{
-    // the variable item is a resource, you could call other operations on this instance as well
-    // but just for demo, we get its data from this resource instance
-    ManagedCcfData resourceData = item.Data;
-    // for demo we just print out the id
-    Console.WriteLine($"Succeeded on id: {resourceData.Id}");
+    for _, v := range page.Value {
+        log.Println("Application Name:", *v.Name)
+    }
 }
-
-Console.WriteLine($"Succeeded");
 ```
 
-### List the Managed CCF resources in a subscription
+### Delete the Managed CCF resource
 
-The following piece of code retrieves the Managed CCF resources in a subscription.
+The following piece of code deletes the Managed CCF resource. Other Managed CCF articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
-```csharp
-// this example assumes you already have this SubscriptionResource created on azure
-// for more information of creating SubscriptionResource, please refer to the document of SubscriptionResource
-string subscriptionId = "0000000-0000-0000-0000-000000000001";
-ResourceIdentifier subscriptionResourceId = SubscriptionResource.CreateResourceIdentifier(subscriptionId);
-SubscriptionResource subscriptionResource = client.GetSubscriptionResource(subscriptionResourceId);
+```go
+deletePoller, err := clientFactory.NewManagedCCFClient().BeginDelete(ctx, rgName, appName, nil)
 
-// invoke the operation and iterate over the result
-await foreach (ManagedCcfResource item in subscriptionResource.GetManagedCcfsAsync())
-{
-    // the variable item is a resource, you could call other operations on this instance as well
-    // but just for demo, we get its data from this resource instance
-    ManagedCcfData resourceData = item.Data;
-    // for demo we just print out the id
-    Console.WriteLine($"Succeeded on id: {resourceData.Id}");
+if err != nil {
+    log.Fatalf("Failed to finish the delete request: %v", err)
 }
 
-Console.WriteLine($"Succeeded");
+_, err = deletePoller.PollUntilDone(ctx, nil)
+
+if err != nil {
+    log.Fatalf("Failed to get the delete result: %v", err)
+}
 ```
 
 ## Clean up resources
